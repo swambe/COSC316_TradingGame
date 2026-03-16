@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct GraphView: View {
+    
     var body: some View {
         VStack{
-            //Title Screen View
             
-            //
+            
+            RoundedRectangle(cornerRadius: 10)
+                .frame(width: geometry.size.width ,height: geometry.size.height * 0.7)
+                
         }
     }
 }

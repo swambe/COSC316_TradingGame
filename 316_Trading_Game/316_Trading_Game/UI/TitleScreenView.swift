@@ -14,7 +14,6 @@ struct TitleScreenView: View {
                 .background(Color.black)
             
             
-            
             Text("Shorts and Ladders")
                 .font(.largeTitle)
                 .foregroundColor(.white)
