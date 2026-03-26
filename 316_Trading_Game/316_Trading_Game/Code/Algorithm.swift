@@ -12,6 +12,8 @@ struct Algorithm{
     
     //MARK: Data Owned By Me
     var level: Int = 1
+    var startingStockValue: Int
+    var currentStockValue: Int
     
     let difficulty: Difficulty
     
@@ -23,21 +25,32 @@ struct Algorithm{
     
     init(difficulty: Difficulty = .easy(variance: 0.2)) {
         self.difficulty = difficulty
+        startingStockValue = 100
+        currentStockValue = startingStockValue
     }
     
-    mutating func nextPoint(lastPoint: Double) -> Double{
+    mutating func nextPoint(lastValue: Int) -> Int{
         let variance: Double
         switch difficulty {
         case .easy(let v), .medium(let v), .hard(let v):
             variance = v
         }
-        let delta = (Double.random(in: -1...1)) * variance * Double(level)
-        return lastPoint + delta
+        let delta = Int((Double.random(in: -1...1)) * variance * Double(level))
+        self.currentStockValue = lastValue + delta
+        print(currentStockValue)
+        return currentStockValue
+    }
+    
+    func getDifference(value: Int) -> Int {
+        startingStockValue - value
+    }
+    
+    func getCurrentValue() -> Int{
+        currentStockValue
     }
     
     mutating func levelUp(){
         self.level = level + 1
-        
     }
 }
 

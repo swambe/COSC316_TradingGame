@@ -21,5 +21,9 @@ struct Level{
         self.levelEndPoints = (level * 100000) / (2/level)
     }
     
+    func getLevelEndPoints() -> Int{
+        return self.levelEndPoints
+    }
+    
 }
 
